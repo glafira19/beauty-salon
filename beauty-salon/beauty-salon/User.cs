@@ -17,5 +17,10 @@
         {
             return _name;
         }
+
+        public void SetRole(Role role)
+        {
+            _role = role;
+        }
     }
 }

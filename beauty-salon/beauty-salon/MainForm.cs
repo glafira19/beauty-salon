@@ -18,13 +18,29 @@ namespace beauty_salon
         public MainForm()
         {
             InitializeComponent();
-            _currentUser = new User("ProstoySmertniy");
-            UpdateFormName();
+            ChangeUser(new User("ProstoySmertniy"));
         }
 
         private void UpdateFormName()
         {
             Text = FORM_NAME + " | вы зашли как: "+_currentUser.GetName();
+        }
+
+        private void uiAutorizationButton_Click(object sender, EventArgs e)
+        {
+            Hide();
+            var autorizationForm = new AutorizationForm();
+            if (autorizationForm.ShowDialog() == DialogResult.OK)
+            {
+                ChangeUser(autorizationForm.SelectedUser);
+            }
+            Show();
+        }
+
+        private void ChangeUser(User user)
+        {
+            _currentUser = user;
+            UpdateFormName();
         }
     }
 }
