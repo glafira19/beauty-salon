@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace beauty_salon
 {
     public partial class AutorizationForm : Form
     {
+        private const string SETTINGS_FILE = "//Data//Settings.Xml";
         public User SelectedUser { get; set; }
         private List<User> AllUser { get; set; }
 
@@ -27,6 +29,7 @@ namespace beauty_salon
 
         private List<User> LoadAllUser()
         {
+            XDocument xDocument = XDocument.Load(SETTINGS_FILE);
             var list = new List<User>();
             var user = new User("Admin");
             user.SetRole(User.Role.Admin);
