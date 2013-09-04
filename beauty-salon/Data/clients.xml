@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+  <Clients>
+	<Client Login="Client1">
+		<Services>
+			<Service Id="2" Date="19.09.2013"/>			
+			<Service Id="4" Date="20.09.2013"/>
+		</Services>
+	</Client>
+	<Client Login="Client2">		
+		<Services>
+			<Service Id="1" Date="29.09.2013"/>			
+			<Service Id="3" Date="21.09.2013"/>
+		</Services>
+	</Client>
+	<Client Login="Client3"/>	
+	<Client Login="Client4"/>
+  </Clients>

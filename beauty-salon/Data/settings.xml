@@ -2,10 +2,14 @@
 <Main>
   <LastLogin>admin</LastLogin>
   <Users>
-	<User Name="Администратор" Login="admin" Password="admin" Role="2"/>
-	<User Name="Царь" Login="boss" Password="boss" Role="2"/>
-	<User Name="Петрова О.П." Login="user1" Password="123" Role="1"/>
-	<User Name="Козлова Ирина" Login="user2" Password="qwe" Role="1"/>
-	<User Name="Уборщица Валя" Login="user3" Password="asd" Role="1"/>
+	<User Name="Администратор" Login="admin" Password="admin" Role="3"/>
+	<User Name="Царь" Login="boss" Password="boss" Role="3"/>
+	<User Name="Петрова О.П." Login="user1" Password="123" Role="2"/>
+	<User Name="Козлова Ирина" Login="user2" Password="qwe" Role="2"/>
+	<User Name="Уборщица Валя" Login="user3" Password="asd" Role="2"/>
+	<User Name="Петя" Login="Client1" Password="123" Role="1"/>
+	<User Name="Вася" Login="Client2" Password="123" Role="1"/>
+	<User Name="Катя" Login="Client3" Password="123" Role="1"/>
+	<User Name="Женя" Login="Client4" Password="123" Role="1"/>
   </Users>
 </Main>

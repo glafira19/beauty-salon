@@ -44,6 +44,7 @@
             // 
             this.uiPasswordTextBox.Location = new System.Drawing.Point(12, 38);
             this.uiPasswordTextBox.Name = "uiPasswordTextBox";
+            this.uiPasswordTextBox.PasswordChar = '*';
             this.uiPasswordTextBox.Size = new System.Drawing.Size(192, 20);
             this.uiPasswordTextBox.TabIndex = 1;
             // 

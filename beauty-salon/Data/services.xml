@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+ï»¿<?xml version="1.0" encoding="utf-8"?>
 <Services>
-	<Service Name="ìàññàæ ïÿòêè" Cost="430"/>
-	<Service Name="ìàññàæ íîãè" Cost="100,21"/>
-	<Service Name="ìàññàæ ïî÷êè" Cost="234,50"/>
-	<Service Name="ìàñêà èç áàêëàæàíà" Cost="606"/>
-	<Service Name="ôèðìåííûé ñþðïðèç" Cost="217"/>
+	<Service Id="1" Name="Ð¼Ð°ÑÑÐ°Ð¶ Ð¿ÑÑ‚ÐºÐ¸" Cost="430"/>
+	<Service Id="2" Name="Ð¼Ð°ÑÑÐ°Ð¶ Ð½Ð¾Ð³Ð¸" Cost="100,21"/>
+	<Service Id="3" Name="Ð¼Ð°ÑÑÐ°Ð¶ Ð¿Ð¾Ñ‡ÐºÐ¸" Cost="234,50"/>
+	<Service Id="4" Name="Ð¼Ð°ÑÐºÐ° Ð¸Ð· Ð±Ð°ÐºÐ»Ð°Ð¶Ð°Ð½Ð°" Cost="606"/>
+	<Service Id="5" Name="Ñ„Ð¸Ñ€Ð¼ÐµÐ½Ð½Ñ‹Ð¹ ÑÑŽÑ€Ð¿Ñ€Ð¸Ð·" Cost="217"/>
 </Services>

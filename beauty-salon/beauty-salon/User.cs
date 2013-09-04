@@ -24,28 +24,6 @@ namespace beauty_salon
             Password = password;
         }
 
-        public User(XElement e)
-        {
-            var attributeName = e.Attribute("Name");
-            var attributeLogin = e.Attribute("Login");
-            var attributePassword = e.Attribute("Password");
-            var attributeRole = e.Attribute("Role");
-            if ((attributeName != null)
-                && (attributeLogin != null)
-                && (attributePassword != null)
-                && (attributeRole != null))
-            {
-                Name = attributeName.Value;
-                Login = attributeLogin.Value;
-                Password = attributePassword.Value;
-                Role = GetRole(attributeRole.Value);
-            }
-            else
-            {
-                throw new Exception("Error in settings file. Corrupt user information");
-            }
-        }
-
         private UserRole GetRole(string role)
         {
             switch (role)
@@ -53,15 +31,17 @@ namespace beauty_salon
                 case "0":
                     return UserRole.Guest;
                 case "1":
-                    return UserRole.User;
+                    return UserRole.Client;
                 case "2":
+                    return UserRole.User;
+                case "3":
                     return UserRole.Admin;
                 default:
                     return UserRole.Guest;
             }
         }
 
-        public enum UserRole { Guest, User, Admin };
+        public enum UserRole { Guest, Client, User, Admin };
 
     }
 }
