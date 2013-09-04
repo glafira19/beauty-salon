@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Services>
+	<Service Name="массаж пятки" Cost="430"/>
+	<Service Name="массаж ноги" Cost="100,21"/>
+	<Service Name="массаж почки" Cost="234,50"/>
+	<Service Name="маска из баклажана" Cost="606"/>
+	<Service Name="фирменный сюрприз" Cost="217"/>
+</Services>

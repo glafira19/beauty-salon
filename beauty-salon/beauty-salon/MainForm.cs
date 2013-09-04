@@ -12,11 +12,12 @@ namespace beauty_salon
         {
             InitializeComponent();
             ChangeUser(new User("ProstoySmertniy"));
+            UpdateElementsEnabitity();
         }
 
         private void UpdateFormName()
         {
-            Text = FORM_NAME + " | вы зашли как: "+_currentUser.GetName();
+            Text = FORM_NAME + " | вы зашли как: "+_currentUser.Name;
         }
 
         private void uiAutorizationButton_Click(object sender, EventArgs e)
@@ -34,6 +35,12 @@ namespace beauty_salon
         {
             _currentUser = user;
             UpdateFormName();
+            UpdateElementsEnabitity();
+        }
+
+        private void UpdateElementsEnabitity()
+        {
+            throw new NotImplementedException();
         }
     }
 }
