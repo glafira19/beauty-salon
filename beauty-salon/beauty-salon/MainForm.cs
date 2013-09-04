@@ -9,7 +9,6 @@ namespace beauty_salon
         public const string FormName = "Салон красоты \"ромашка\"";
         private User _currentUser;
         private User _selectedClient;
-        private List<ClientService> _selectedClientServices;
         private List<Service> _services;
 
         public MainForm()
@@ -56,19 +55,28 @@ namespace beauty_salon
             if (_currentUser.Role == User.UserRole.Client)
             {
                 _selectedClient = _currentUser;
-                _selectedClientServices = XmlWorker.GetServices(_selectedClient);
-                uiClientServicesListBox.DataSource = _selectedClientServices;
+                var selectedClientServices = XmlWorker.GetServices(_selectedClient.Login);
+                _selectedClient.Services = selectedClientServices;
+                uiClientServicesListBox.DataSource = _selectedClient.Services;
             }
         }
 
         private void uiClientAddServiceButton_Click(object sender, EventArgs e)
         {
-
+            var selectedService = uiServicesListBox.SelectedItem;
+            _selectedClient.AddService((Service)selectedService, uiServiceDateTimePicker.Value);
+            _selectedClient.SaveServices();
+            UpdateElementsEnabitity();
         }
 
         private void uiClientDeleteServiceButton_Click(object sender, EventArgs e)
         {
-
+            if (uiClientServicesListBox.SelectedItem != null)
+            {
+                _selectedClient.RemoveService((ClientService)uiClientServicesListBox.SelectedItem);
+                _selectedClient.SaveServices();
+                UpdateElementsEnabitity();
+            }
         }
     }
 }

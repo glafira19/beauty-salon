@@ -86,6 +86,8 @@
             // 
             // uiServiceDateTimePicker
             // 
+            this.uiServiceDateTimePicker.CustomFormat = "MM.dd.yyyy hh:mm";
+            this.uiServiceDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.uiServiceDateTimePicker.Location = new System.Drawing.Point(18, 42);
             this.uiServiceDateTimePicker.Name = "uiServiceDateTimePicker";
             this.uiServiceDateTimePicker.Size = new System.Drawing.Size(151, 20);

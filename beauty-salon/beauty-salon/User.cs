@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Xml.Linq;
 
 namespace beauty_salon
@@ -9,15 +10,18 @@ namespace beauty_salon
         public string Login { get; set; }
         public string Password { get; set; }
         public UserRole Role { get; set; }
+        public List<ClientService> Services { get; set; }
 
         public User(string name)
         {
+            Services = new List<ClientService>();
             Role = UserRole.Guest;
             Name = name;
         }
 
         public User(string name, string login, string password, string role)
         {
+            Services = new List<ClientService>();
             Role = GetRole(role);
             Name = name;
             Login = login;
@@ -43,5 +47,19 @@ namespace beauty_salon
 
         public enum UserRole { Guest, Client, User, Admin };
 
+        public void AddService(Service selectedService, DateTime time)
+        {
+            Services.Add(new ClientService(selectedService, time));
+        }
+
+        public void SaveServices()
+        {
+            XmlWorker.SaveClientServices(Services, Login);
+        }
+
+        public void RemoveService(ClientService selectedItem)
+        {
+            Services.Remove(selectedItem);
+        }
     }
 }

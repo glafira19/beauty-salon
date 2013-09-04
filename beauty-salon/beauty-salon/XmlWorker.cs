@@ -89,14 +89,16 @@ namespace beauty_salon
             throw new Exception("Error in settings file. Corrupt user information");
         }
 
-        public static List<ClientService> GetServices(User selectedClient)
+        public static List<ClientService> GetServices(string login)
         {
             var allServices = GetServices();
             var xDocument = XDocument.Load(CLIENT_SERVICES_FILE);
             var clientServices = new List<ClientService>();
             if (xDocument.Root != null)
             {
-                var client = xDocument.Root.Elements().FirstOrDefault(e => e.Name == "Client" && e.Attribute("Login").Value == selectedClient.Login);
+                var client =
+                    xDocument.Root.Elements().FirstOrDefault(
+                        e => e.Name == "Client" && e.Attribute("Login").Value == login);
                 if (client != null)
                 {
                     var services = client.Elements().FirstOrDefault(e => e.Name == "Services");
@@ -122,6 +124,32 @@ namespace beauty_salon
                 }
             }
             return clientServices;
+        }
+
+        public static void SaveClientServices(List<ClientService> services, string login)
+        {
+            var xDocument = XDocument.Load(CLIENT_SERVICES_FILE);
+            if (xDocument.Root != null)
+            {
+                var client =
+                    xDocument.Root.Elements().FirstOrDefault(
+                        e => e.Name == "Client" && e.Attribute("Login").Value == login);
+                if (client != null)
+                {
+                    client.Elements().Where(e => e.Name == "Services").Remove();
+                    var servicesElement = new XElement("Services");
+                    client.Add(servicesElement);
+                    servicesElement = client.Elements().FirstOrDefault(e => e.Name == "Services");
+                    foreach (var service in services)
+                    {
+                        var termElem = new XElement("Service");
+                        termElem.Add(new XAttribute("Id", service.Service.Id));
+                        termElem.Add(new XAttribute("Date", service.Date));
+                        servicesElement.Add(termElem);
+                    }
+                }
+            }
+            xDocument.Save(CLIENT_SERVICES_FILE);
         }
     }
 }
