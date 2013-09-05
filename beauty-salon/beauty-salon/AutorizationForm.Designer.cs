@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.uiLoginTextBox = new System.Windows.Forms.TextBox();
             this.uiPasswordTextBox = new System.Windows.Forms.TextBox();
+            this.uiLoginTextBox = new System.Windows.Forms.TextBox();
             this.uiLoginButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // uiLoginTextBox
             // 
-            this.uiLoginTextBox.Location = new System.Drawing.Point(12, 12);
-            this.uiLoginTextBox.Name = "uiLoginTextBox";
-            this.uiLoginTextBox.Size = new System.Drawing.Size(192, 20);
-            this.uiLoginTextBox.TabIndex = 0;
+            this.uiPasswordTextBox.Location = new System.Drawing.Point(12, 12);
+            this.uiPasswordTextBox.Name = "uiLoginTextBox";
+            this.uiPasswordTextBox.Size = new System.Drawing.Size(192, 20);
+            this.uiPasswordTextBox.TabIndex = 0;
             // 
             // uiPasswordTextBox
             // 
-            this.uiPasswordTextBox.Location = new System.Drawing.Point(12, 38);
-            this.uiPasswordTextBox.Name = "uiPasswordTextBox";
-            this.uiPasswordTextBox.PasswordChar = '*';
-            this.uiPasswordTextBox.Size = new System.Drawing.Size(192, 20);
-            this.uiPasswordTextBox.TabIndex = 1;
+            this.uiLoginTextBox.Location = new System.Drawing.Point(12, 38);
+            this.uiLoginTextBox.Name = "uiPasswordTextBox";
+            this.uiLoginTextBox.PasswordChar = '*';
+            this.uiLoginTextBox.Size = new System.Drawing.Size(192, 20);
+            this.uiLoginTextBox.TabIndex = 1;
             // 
             // uiLoginButton
             // 
@@ -64,8 +64,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(216, 98);
             this.Controls.Add(this.uiLoginButton);
-            this.Controls.Add(this.uiPasswordTextBox);
             this.Controls.Add(this.uiLoginTextBox);
+            this.Controls.Add(this.uiPasswordTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AutorizationForm";
             this.Text = "Авторизация";

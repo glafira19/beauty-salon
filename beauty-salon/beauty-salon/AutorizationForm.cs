@@ -18,7 +18,7 @@ namespace beauty_salon
         private void AutorizationForm_Load(object sender, EventArgs e)
         {
             AllUser = XmlWorker.GetUsers();
-            uiLoginTextBox.Text = XmlWorker.GetLastLogin();
+            uiPasswordTextBox.Text = XmlWorker.GetLastLogin();
         }
 
         private void uiLoginButton_Click(object sender, EventArgs e)
@@ -28,9 +28,9 @@ namespace beauty_salon
 
         private void Login()
         {
-            if (AllUser.Any(u => u.Login == uiLoginTextBox.Text && u.Password == uiPasswordTextBox.Text))
+            if (AllUser.Any(u => u.Login == uiPasswordTextBox.Text && u.Password == uiLoginTextBox.Text))
             {
-                SelectedUser = AllUser.First(u => u.Login == uiLoginTextBox.Text && u.Password == uiPasswordTextBox.Text);
+                SelectedUser = AllUser.First(u => u.Login == uiPasswordTextBox.Text && u.Password == uiLoginTextBox.Text);
                 DialogResult = DialogResult.OK;
                 Close();
             }

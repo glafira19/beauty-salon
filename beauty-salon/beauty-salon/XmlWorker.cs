@@ -28,7 +28,6 @@ namespace beauty_salon
             return list;
         }
 
-
         public static User GetUser(XElement e)
         {
             var attributeName = e.Attribute("Name");
@@ -75,16 +74,16 @@ namespace beauty_salon
 
         private static Service GetService(XElement e)
         {
-            var attributeId = e.Attribute("Id");
+            var attributeId = e.Attribute("Guid");
             var attributeName = e.Attribute("Name");
             var attributeCost = e.Attribute("Cost");
             if ((attributeName != null)
                 && (attributeCost != null))
             {
-                var id = Convert.ToInt32(attributeId.Value);
+                var guid = Guid.Parse(attributeId.Value);
                 var name = attributeName.Value;
                 var cost = Convert.ToDecimal(attributeCost.Value);
-                return new Service(id, name, cost);
+                return new Service(guid, name, cost);
             }
             throw new Exception("Error in settings file. Corrupt user information");
         }
@@ -108,13 +107,13 @@ namespace beauty_salon
                         {
                             if (service.Name == "Service")
                             {
-                                var attributeId = service.Attribute("Id");
+                                var attributeGuid = service.Attribute("Guid");
                                 var attributeDate = service.Attribute("Date");
-                                if (attributeId != null && attributeDate != null)
+                                if (attributeGuid != null && attributeDate != null)
                                 {
-                                    var id = Convert.ToInt32(attributeId.Value);
+                                    var guid = Guid.Parse(attributeGuid.Value);
                                     var date = Convert.ToDateTime(attributeDate.Value);
-                                    var ser = allServices.First(s => s.Id == id);
+                                    var ser = allServices.First(s => s.Guid == guid);
                                     var a = new ClientService(ser, date);
                                     clientServices.Add(a);
                                 }
@@ -143,10 +142,66 @@ namespace beauty_salon
                     foreach (var service in services)
                     {
                         var termElem = new XElement("Service");
-                        termElem.Add(new XAttribute("Id", service.Service.Id));
+                        termElem.Add(new XAttribute("Guid", service.Service.Guid));
                         termElem.Add(new XAttribute("Date", service.Date));
                         servicesElement.Add(termElem);
                     }
+                }
+            }
+            xDocument.Save(CLIENT_SERVICES_FILE);
+        }
+
+        public static List<User> GetClients()
+        {
+            var users = GetUsers();
+            var clients = users.Where(u => u.Role == User.UserRole.Client).ToList();
+            foreach (var client in clients)
+            {
+                var clientServices = GetServices(client.Login);
+                client.Services = clientServices;
+            }
+            return clients;
+        }
+
+        public static void AddService(Service service, bool isUpdate)
+        {
+            var xDocument = XDocument.Load(SERVICES_FILE);
+            if (xDocument.Root != null)
+            {
+                if (isUpdate)
+                {
+                    xDocument.Root.Elements().Where(e => e.Attribute("Guid").Value == service.Guid.ToString()).Remove();
+                }
+                var elem = new XElement("Service");
+                elem.Add(new XAttribute("Guid", service.Guid));
+                elem.Add(new XAttribute("Name", service.Name));
+                elem.Add(new XAttribute("Cost", service.Cost));
+                xDocument.Root.Add(elem);
+            }
+            xDocument.Save(SERVICES_FILE);
+        }
+
+        public static void RemoveService(Service service)
+        {
+            var xDocument = XDocument.Load(SERVICES_FILE);
+            if (xDocument.Root != null)
+            {
+                xDocument.Root.Elements().Where(e => e.Attribute("Guid").Value == service.Guid.ToString()).Remove();
+            }
+            xDocument.Save(SERVICES_FILE);
+            RemoveClientService(service);
+        }
+
+        private static void RemoveClientService(Service removingService)
+        {
+            var xDocument = XDocument.Load(CLIENT_SERVICES_FILE);
+            if (xDocument.Root != null)
+            {
+                var client = xDocument.Root.Elements();
+                var services = client.Elements().FirstOrDefault(e => e.Name == "Services");
+                if (services != null)
+                {
+                    services.Elements().Where(e => e.Attribute("Guid").Value == removingService.Guid.ToString()).Remove();
                 }
             }
             xDocument.Save(CLIENT_SERVICES_FILE);

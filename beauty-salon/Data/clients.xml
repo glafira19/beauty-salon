@@ -1,17 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-  <Clients>
-	<Client Login="Client1">
-		<Services>
-			<Service Id="2" Date="19.09.2013"/>			
-			<Service Id="4" Date="20.09.2013"/>
-		</Services>
-	</Client>
-	<Client Login="Client2">		
-		<Services>
-			<Service Id="1" Date="29.09.2013"/>			
-			<Service Id="3" Date="21.09.2013"/>
-		</Services>
-	</Client>
-	<Client Login="Client3"/>	
-	<Client Login="Client4"/>
-  </Clients>
+<Services>
+  <Client Login="Client1">
+    <Services>
+      <Service Guid="1b067cb6-ca6c-4ecb-b188-4fdb1bf66f69" Date="2013-09-06T01:19:03.0947989+07:00" />
+      <Service Guid="6eff350b-c0ec-40a1-8512-f89c4493b558" Date="2013-09-06T01:20:00.9771096+07:00" />
+    </Services>
+  </Client>
+  <Client Login="Client2">
+    <Services>
+      <Service Guid="6eff350b-c0ec-40a1-8512-f89c4493b558" Date="2013-09-06T01:20:00.9771096+07:00" />
+      <Service Guid="6eff350b-c0ec-40a1-8512-f89c4493b558" Date="2013-09-06T01:20:00.9771096+07:00" />
+      <Service Guid="6eff350b-c0ec-40a1-8512-f89c4493b558" Date="2013-09-06T01:20:00.9771096+07:00" />
+      <Service Guid="6eff350b-c0ec-40a1-8512-f89c4493b558" Date="2013-09-06T01:20:00.9771096+07:00" />
+    </Services>
+  </Client>
+  <Client Login="Client3">
+    <Services>
+      <Service Guid="6eff350b-c0ec-40a1-8512-f89c4493b558" Date="2013-09-06T01:20:00.9771096+07:00" />
+    </Services>
+  </Client>
+  <Client Login="Client4">
+    <Services></Services>
+  </Client>
+</Services>

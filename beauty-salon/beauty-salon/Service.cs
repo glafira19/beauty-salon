@@ -4,14 +4,19 @@ namespace beauty_salon
 {
     public class Service
     {
-        public Service(int id ,string name, Decimal cost)
+        public Service(Guid guid, string name, Decimal cost)
         {
-            Id = id;
+            Guid = guid;
             Name = name;
             Cost = cost;
         }
 
-        public int Id { get; set; }
+        public Service()
+        {
+            Guid = Guid.NewGuid();
+        }
+
+        public Guid Guid { get; set; }
         public string Name { get; set; }
         public Decimal Cost { get; set; }
 

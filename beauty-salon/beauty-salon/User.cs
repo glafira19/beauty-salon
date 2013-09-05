@@ -61,5 +61,10 @@ namespace beauty_salon
         {
             Services.Remove(selectedItem);
         }
+
+        public override string ToString()
+        {
+            return Name + " (" + Login + ")";
+        }
     }
 }

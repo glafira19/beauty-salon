@@ -1,8 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Services>
-	<Service Id="1" Name="массаж пятки" Cost="430"/>
-	<Service Id="2" Name="массаж ноги" Cost="100,21"/>
-	<Service Id="3" Name="массаж почки" Cost="234,50"/>
-	<Service Id="4" Name="маска из баклажана" Cost="606"/>
-	<Service Id="5" Name="фирменный сюрприз" Cost="217"/>
+  <Service Guid="6eff350b-c0ec-40a1-8512-f89c4493b558" Name="1" Cost="2" />
+  <Service Guid="1b067cb6-ca6c-4ecb-b188-4fdb1bf66f69" Name="lol" Cost="1" />
 </Services>
