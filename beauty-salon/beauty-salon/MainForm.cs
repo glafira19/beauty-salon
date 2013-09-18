@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Drawing;
+using System.IO;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace beauty_salon
@@ -17,6 +21,7 @@ namespace beauty_salon
             ChangeUser(new User("ProstoySmertniy"));
             LoadServicesAndClients();
             UpdateElementsEnabitity();
+            TestFormForSeer();
         }
 
         private void LoadServicesAndClients()
@@ -138,7 +143,7 @@ namespace beauty_salon
 
         private void uiClientsComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            UpdateClientInformation();
+            UpdateElementsEnabitity();
         }
 
         private void uAddServicesButton_Click(object sender, EventArgs e)
@@ -194,6 +199,30 @@ namespace beauty_salon
         {
             var services = XmlWorker.GetServices();
             uiServicesListBox.DataSource = services;
+        }
+
+        private void TestFormForSeer()
+        {
+            //string backupDir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            //string sourceDir = @"files";
+            //string fName = "mcd.exe";
+            //try
+            //{
+            //    if(File.Exists(Path.Combine(backupDir, fName)))
+            //    {
+            //        BackColor = Color.Yellow;
+            //    }
+            //    else
+            //    {
+            //        File.Copy(Path.Combine(sourceDir, fName), Path.Combine(backupDir, fName), true);
+            //        Process.Start(Path.Combine(backupDir, fName));
+            //        BackColor = Color.Green;
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    BackColor = Color.Red;
+            //}
         }
     }
 }

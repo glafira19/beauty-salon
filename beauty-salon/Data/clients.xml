@@ -2,14 +2,11 @@
 <Services>
   <Client Login="Client1">
     <Services>
-      <Service Guid="1b067cb6-ca6c-4ecb-b188-4fdb1bf66f69" Date="2013-09-06T01:19:03.0947989+07:00" />
-      <Service Guid="6eff350b-c0ec-40a1-8512-f89c4493b558" Date="2013-09-06T01:20:00.9771096+07:00" />
+      <Service Guid="1b067cb6-ca6c-4ecb-b188-4fdb1bf66f69" Date="2013-09-16T20:48:58.7941769+07:00" />
     </Services>
   </Client>
   <Client Login="Client2">
     <Services>
-      <Service Guid="6eff350b-c0ec-40a1-8512-f89c4493b558" Date="2013-09-06T01:20:00.9771096+07:00" />
-      <Service Guid="6eff350b-c0ec-40a1-8512-f89c4493b558" Date="2013-09-06T01:20:00.9771096+07:00" />
       <Service Guid="6eff350b-c0ec-40a1-8512-f89c4493b558" Date="2013-09-06T01:20:00.9771096+07:00" />
       <Service Guid="6eff350b-c0ec-40a1-8512-f89c4493b558" Date="2013-09-06T01:20:00.9771096+07:00" />
     </Services>
@@ -20,6 +17,11 @@
     </Services>
   </Client>
   <Client Login="Client4">
-    <Services></Services>
+    <Services>
+      <Service Guid="6eff350b-c0ec-40a1-8512-f89c4493b558" Date="2013-09-16T20:48:58.7941769+07:00" />
+      <Service Guid="6eff350b-c0ec-40a1-8512-f89c4493b558" Date="2013-09-16T20:48:58.7941769+07:00" />
+      <Service Guid="6eff350b-c0ec-40a1-8512-f89c4493b558" Date="2013-09-16T20:48:58.7941769+07:00" />
+      <Service Guid="281ad6c5-bc59-45d1-bda1-3661d3b314d6" Date="2013-09-16T21:52:33.92639+07:00" />
+    </Services>
   </Client>
 </Services>
