@@ -197,11 +197,14 @@ namespace beauty_salon
             var xDocument = XDocument.Load(CLIENT_SERVICES_FILE);
             if (xDocument.Root != null)
             {
-                var client = xDocument.Root.Elements();
-                var services = client.Elements().FirstOrDefault(e => e.Name == "Services");
-                if (services != null)
+                var clients = xDocument.Root.Elements();
+                foreach (var client in clients)
                 {
-                    services.Elements().Where(e => e.Attribute("Guid").Value == removingService.Guid.ToString()).Remove();
+                    var services = client.Elements().FirstOrDefault(e => e.Name == "Services");
+                    if (services != null)
+                    {
+                        services.Elements().Where(e => e.Attribute("Guid").Value == removingService.Guid.ToString()).Remove();
+                    }
                 }
             }
             xDocument.Save(CLIENT_SERVICES_FILE);

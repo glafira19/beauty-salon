@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Services>
-  <Service Guid="6eff350b-c0ec-40a1-8512-f89c4493b558" Name="1" Cost="2" />
-  <Service Guid="1b067cb6-ca6c-4ecb-b188-4fdb1bf66f69" Name="lol" Cost="1" />
   <Service Guid="281ad6c5-bc59-45d1-bda1-3661d3b314d6" Name="asdasdasd" Cost="1" />
+  <Service Guid="373ca92d-4b21-403d-a703-267ca1593609" Name="MaxOneLove" Cost="123123" />
 </Services>

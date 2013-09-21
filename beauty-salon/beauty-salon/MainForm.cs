@@ -56,10 +56,14 @@ namespace beauty_salon
 
         private void UpdateElementsEnabitity()
         {
-            uiClientPanel.Visible = _currentUser.Role == User.UserRole.Client ||
-                                    _currentUser.Role == User.UserRole.Admin || _currentUser.Role == User.UserRole.User;
-            uiClientServicesListBox.Visible = _currentUser.Role == User.UserRole.Admin ||
-                                              _currentUser.Role == User.UserRole.User;
+            uiClientPanel.Visible = _currentUser.Role == User.UserRole.Client
+                                    || _currentUser.Role == User.UserRole.Admin
+                                    || _currentUser.Role == User.UserRole.User;
+            uiClientServicesListBox.Visible = _currentUser.Role == User.UserRole.Client
+                                              || _currentUser.Role == User.UserRole.Admin
+                                              || _currentUser.Role == User.UserRole.User;
+            uiClientsComboBox.Visible = _currentUser.Role == User.UserRole.Admin
+                                              || _currentUser.Role == User.UserRole.User;
             uiAdminPanel.Visible = _currentUser.Role == User.UserRole.Admin;
 
             if (_currentUser.Role == User.UserRole.Client)
